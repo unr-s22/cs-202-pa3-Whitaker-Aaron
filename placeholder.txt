@@ -1,0 +1,17 @@
+friend std::ostream &operator << (std::ostream &os, const Account &account){
+ os << "Account Details" << std::endl << "-----------------------" << std::endl << "Current Balance: " << std::endl << "-----------------------" << std::endl << "Number of Deposits: " << account.depositBalance.size() << std::endl <<  "-----------------------" << std::endl; 
+
+for(auto i : account.depositBalance){
+ os << "(" << ++account.count << ") " << i->allCents();
+}
+
+ os << std::endl << "-----------------------"  << std::endl << "Number of Withdrawals: " << account.withdrawalBalance.size() << std::endl << "-----------------------" << std::endl;
+
+for(auto i : account.withdrawalBalance){
+ os << "(" << ++account.count << ") " << i->allCents();
+}
+
+ 
+ return os;
+}
+

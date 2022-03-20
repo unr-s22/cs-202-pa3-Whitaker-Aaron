@@ -10,3 +10,6 @@ Money: Money.cpp
 
 Account: Account.cpp
 	g++ -c Account.cpp
+
+clean: 
+	rm *o
