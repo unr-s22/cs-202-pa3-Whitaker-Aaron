@@ -9,8 +9,8 @@ class Account : public Money {
 
 private:
 
-std::vector<Money*> depositBalance;
-std::vector<Money*> withdrawalBalance;
+std::vector<Money> depositBalance;
+std::vector<Money> withdrawalBalance;
 
 
 bool flag = {0};
@@ -22,11 +22,11 @@ public:
 Account(int dollars, int cents): Money(dollars, cents){
 }
 
-void makeDeposit(Money* money);
+void makeDeposit(Money money);
 
-void makeWithdrawal(Money* money);
+void makeWithdrawal(Money money);
 
-
+Money calculateBalance();
 
 virtual ~Account();
 

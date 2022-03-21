@@ -116,16 +116,15 @@ bool operator != (const Money rhs){
 //Arthimetic Operators
 
 
-bool operator + (const Money rhs){
- return (all_cents + rhs.all_cents);
+Money operator + (const Money& m) const {
+ return Money(dollars + m.dollars, cents + m.cents); 
  
 }
 
-bool operator - (const Money rhs){
- return (all_cents - rhs.all_cents);
+Money operator - (const Money& m) const {
+ return Money(dollars - m.dollars, cents - m.cents); 
  
 }
-
 
 
 virtual ~Money();
