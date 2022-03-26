@@ -2,9 +2,10 @@
 
 
 
-void Money::allCents(){
+float Money::allCents(){
  all_cents = (dollars + (cents*.01));
  
+ return all_cents;
 }
 
 

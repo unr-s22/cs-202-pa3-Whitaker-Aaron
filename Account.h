@@ -12,9 +12,17 @@ private:
 std::vector<Money> depositBalance;
 std::vector<Money> withdrawalBalance;
 
+friend std::ostream &operator << (std::ostream &os, const Account &account){
+ 
+ os << "Account Details" << std::endl << "-----------------------" << std::endl << "Current Balance: " << std::endl <<  "-----------------------" << std::endl << account.calculateBalance() << std::endl << "-----------------------" << std::endl << "Number of Deposits: " << account.depositBalance.size() << std::endl <<  "-----------------------" << std::endl << account.numOfDeposits() << std::endl << "-----------------------" << std::endl << "Number of Withdrawals: " << account.withdrawalBalance.size() << std::endl << "-----------------------" << std::endl << account.numOfWithdrawals() << std::endl << "-----------------------" << std::endl;
 
-bool flag = {0};
-int count = {0};
+ return os;
+}
+
+
+
+mutable bool flag = {0};
+mutable int count = {0};
 
 
 public:
@@ -26,7 +34,11 @@ void makeDeposit(Money money);
 
 void makeWithdrawal(Money money);
 
-Money calculateBalance();
+Money calculateBalance() const;
+
+std::string numOfDeposits() const;
+std::string numOfWithdrawals() const;
+
 
 virtual ~Account();
 

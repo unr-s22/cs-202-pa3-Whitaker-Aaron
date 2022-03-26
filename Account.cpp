@@ -1,7 +1,7 @@
 
 #include "Account.h"
 #include <numeric>
-
+#include <sstream>
 
 void Account::makeDeposit(Money money){
 
@@ -17,7 +17,7 @@ flag = 1;
 
 }
 
-Money Account::calculateBalance(){
+Money Account::calculateBalance() const {
 
 Money m;
 
@@ -33,13 +33,52 @@ auto finalBalance = sum_deposits - sum_withdrawal;
 
 finalBalance.allCents();
 
-std::cout << finalBalance << std::endl;
-
-
 flag = 0;
+
+
 
 return finalBalance;
 }
+
+
+
+
+}
+
+std::string Account::numOfDeposits() const {
+
+std::stringstream ss1;
+
+
+for(Money m : depositBalance){
+ ss1 << "(" << ++count << ") " << m.allCents() << std::endl; 
+}
+
+count = 0;
+
+
+return ss1.str();
+
+}
+
+
+
+
+std::string Account::numOfWithdrawals() const {
+
+std::stringstream ss2;
+
+for(Money m : withdrawalBalance){
+ ss2 << "(" << ++count << ")" << m.allCents() << std::endl; 
+}
+
+count = 0;
+
+return ss2.str();
+
+
+
+
 
 
 

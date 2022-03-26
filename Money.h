@@ -41,8 +41,7 @@ void setCents(){
 }
 
 //Function prototype for all_cents.
-
-void allCents();
+float allCents();
 
 
 
@@ -56,7 +55,11 @@ friend std::ostream &operator << (std::ostream &os, const Money &money){
 
 //Operator Overloads
 bool operator < (const Money rhs)  {
- if (all_cents < rhs.all_cents){
+ if (dollars < rhs.dollars){
+  return true;
+ }
+
+ else if(dollars == rhs.dollars && cents < rhs.cents){
   return true;
  }
  else{
@@ -65,16 +68,21 @@ bool operator < (const Money rhs)  {
 }
  
 bool operator > (const Money rhs){
- if (all_cents > rhs.all_cents){
+ if (dollars > rhs.dollars){
   return true;
  }
+
+ else if(dollars == rhs.dollars && cents > rhs.cents){
+  return true;
+ }
+
  else{
   return false;
  }
 }
 
 bool operator == (const Money rhs){
- if (all_cents == rhs.all_cents){
+ if (dollars == rhs.dollars && cents == rhs.cents){
   return true;
  }
  else{
@@ -84,7 +92,7 @@ bool operator == (const Money rhs){
 }
 
 bool operator <= (const Money rhs){
- if (all_cents <= rhs.all_cents){
+ if (dollars <= rhs.dollars && cents <= rhs.cents){
   return true;
  }
  else{
@@ -94,7 +102,7 @@ bool operator <= (const Money rhs){
 }
 
 bool operator >= (const Money rhs){
- if (all_cents >= rhs.all_cents){
+ if (dollars >= rhs.dollars && cents >= rhs.cents){
   return true;
  }
  else{
@@ -104,7 +112,7 @@ bool operator >= (const Money rhs){
 }
 
 bool operator != (const Money rhs){
- if (all_cents != rhs.all_cents){
+ if (dollars != rhs.dollars && cents != rhs.cents){
   return true;
  }
  else{
