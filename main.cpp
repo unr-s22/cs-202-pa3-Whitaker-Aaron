@@ -29,14 +29,13 @@ acc.makeWithdrawal(with1);
 
 std::cout << acc << std::endl;
 
-
-//Print balance again to terminal.
-
-
-//Print a final time to terminal.
-
-//Verify that relational operators are working.
-
+std::cout << std::boolalpha;
+std::cout << "dep1 < dep2 " << (dep1 < dep2) <<  "\n";
+std::cout << "dep1 > dep2 " << (dep1 > dep2) << "\n";
+std::cout << "dep1 == dep2 " << (dep1 == dep2) << "\n";
+std::cout << "dep1 <= dep2 " << (dep1 <= dep2) << "\n";
+std::cout << "dep1 >= dep2 " << (dep1 >= dep2) << "\n";
+std::cout << "dep1 != dep2 " << (dep1 != dep2) << "\n";
 return 0;
 
 }
